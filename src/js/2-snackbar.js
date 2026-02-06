@@ -27,9 +27,13 @@ function createPromises(event) {
 
     const promises = new Promise((resolve, reject) => {
         if (userChoice === 'fulfilled') {
-            resolve(`Fulfilled promise in ${delay}ms`)
+            setTimeout(() => {
+                resolve(delay);
+            }, delay);
         } else if(userChoice === 'rejected'){
-            reject (`Rejected promise in ${delay}ms`)
+             setTimeout(() => {
+                reject(delay);
+            }, delay);
         } else {
         
         }
@@ -39,12 +43,12 @@ function createPromises(event) {
         .then(value => 
             iziToast.success({
                 title: 'Success!',
-                message: value
+                message: `Fulfilled promise in ${delay}ms`
             }))
         .catch(error => 
             iziToast.error({
                 title: 'Oops!',
-                message: error
+                message: `Rejected promise in ${delay}ms`
             }))
     
 };
