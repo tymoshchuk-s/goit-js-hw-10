@@ -42,11 +42,13 @@ function createPromises(event) {
     promises
         .then(value => 
             iziToast.success({
+                title: 'Success',
                 message: `✅ Fulfilled promise in ${delay}ms`
             }))
         .catch(error => 
             iziToast.error({
-                message: `❌ Rejected promise in ${delay}ms`
+                title: 'Error',
+                message: `Rejected promise in ${delay}ms`
             }))
     
 };
